@@ -28,22 +28,35 @@ with tab2:
      import pandas as pd
      import streamlit.components.v1 as components   
 
-     st.subheader("Distribution of hospitals across departments")
+     st.subheader("Distribution of Mean Minimum Temperature by District")
+     # Mostrar imagen PNG guardada
+     st.image("data/histogram_tmin_mean_total.png", use_container_width=True,width=50)
+
+     st.subheader("Top 15 districts with lowest mean Tmin (frost risk)")
      # Leer el DataFrame desde la carpeta data/
-     summary_table = pd.read_csv("data/summary_table.csv")
-     summary_table = summary_table.rename(
-          columns={"Departamento": "Department",
-                   "n_hospitals_dept": "Number of Hospitals"
+     summary_table1 = pd.read_csv("data/top15_highest_tmin.csv")
+     summary_table1 = summary_table1.rename(
+          columns={"DISTRITO": "Distrito",
+                   "tmin_mean_total": "Mean Minimum Temperature (°C)"
                   }
      )
      # Mostrar en tabla interactiva
-     st.dataframe(summary_table)
+     st.dataframe(summary_table1)
 
+     st.subheader("Top 15 districts with highest mean Tmin")
+     # Leer el DataFrame desde la carpeta data/
+     summary_table1 = pd.read_csv("data/top15_lowest_tmin.csv")
+     summary_table1 = summary_table1.rename(
+          columns={"DISTRITO": "Distrito",
+                   "tmin_mean_total": "Mean Minimum Temperature (°C)"
+                  }
+     )
+     # Mostrar en tabla interactiva
+     st.dataframe(summary_table1)
+
+     st.subheader("Choropleth map")
      # Mostrar imagen PNG guardada
-     st.image("assets/hospitals_dept_bars.png", use_container_width=True,width=50)
-
-     st.subheader("Geospatial distribution of hospitals by departments")
-     st.image("assets/hospitals_dept_map.png", use_container_width=True)
+     st.image("data/mapa_tmin_mean_total.png", use_container_width=True,width=50)
 
 with tab3:
     st.markdown("# Public policy")
