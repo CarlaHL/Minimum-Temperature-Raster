@@ -46,7 +46,7 @@ with tab2:
      st.subheader("Top 15 districts with highest mean Tmin")
      # Leer el DataFrame desde la carpeta data/
      summary_table2 = pd.read_csv("data/top15_highest_tmin.csv")
-     summary_table2 = summary_table1.rename(
+     summary_table2 = summary_table2.rename(
           columns={"DISTRITO": "Distrito",
                    "tmin_mean_total": "Mean Minimum Temperature (°C)"
                   }
