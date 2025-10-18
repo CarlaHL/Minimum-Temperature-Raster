@@ -34,7 +34,7 @@ with tab2:
 
      st.subheader("Top 15 districts with lowest mean Tmin (frost risk)")
      # Leer el DataFrame desde la carpeta data/
-     summary_table1 = pd.read_csv("data/top15_highest_tmin.csv")
+     summary_table1 = pd.read_csv("data/top15_lowest_tmin.csv")
      summary_table1 = summary_table1.rename(
           columns={"DISTRITO": "Distrito",
                    "tmin_mean_total": "Mean Minimum Temperature (°C)"
@@ -45,14 +45,14 @@ with tab2:
 
      st.subheader("Top 15 districts with highest mean Tmin")
      # Leer el DataFrame desde la carpeta data/
-     summary_table1 = pd.read_csv("data/top15_lowest_tmin.csv")
-     summary_table1 = summary_table1.rename(
+     summary_table2 = pd.read_csv("data/top15_highest_tmin.csv")
+     summary_table2 = summary_table1.rename(
           columns={"DISTRITO": "Distrito",
                    "tmin_mean_total": "Mean Minimum Temperature (°C)"
                   }
      )
      # Mostrar en tabla interactiva
-     st.dataframe(summary_table1)
+     st.dataframe(summary_table2)
 
      st.subheader("Choropleth map")
      # Mostrar imagen PNG guardada
